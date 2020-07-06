@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts
   # GET /contacts.json
-  def index
+  def index # nome do arquivo
     @contacts = Contact.all
   end
 
