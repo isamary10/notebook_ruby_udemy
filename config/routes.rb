@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get 'home/index'
+  root 'home#index' # Deixando a página index padrão
+
   resources :phones
   resources :addresses
   resources :contacts
