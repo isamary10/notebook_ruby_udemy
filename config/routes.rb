@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
+  # get 'home/index'
+  get 'bemvindo' => 'home#index'
   root 'home#index' # Deixando a página index padrão
 
+  # o scaffold cria 8 rotas de forma automática
   resources :phones
   resources :addresses
-  resources :contacts
+  resources :contacts #, except: [:edit] 
   resources :kinds
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
