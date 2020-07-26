@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <h1>New Kind</h1>
+  <h1>Kind</h1>
 
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.submit "Create Kind", class: "button" %>
-    <%= link_to 'Back', contacts_path, class: "button-back" %>
+    <%= f.submit t('buttons.create'), class: "button" %>
+    <%= link_to t('buttons.back'), kinds_path, class: "button-back" %>
   </div>
 <% end %>

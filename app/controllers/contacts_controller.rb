@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index # nome do arquivo
     @contacts = Contact.all
-    @meu_nome = "Isa Mary"
+  #  @meu_nome = "Isa Mary"
   end
 
   # GET /contacts/1
@@ -32,7 +32,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to @contact, notice: t('messages.create') }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
+        format.html { redirect_to @contact, notice: t('messages.update') }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
+      format.html { redirect_to contacts_url, notice: t('messages.destroy') }
       format.json { head :no_content }
     end
   end

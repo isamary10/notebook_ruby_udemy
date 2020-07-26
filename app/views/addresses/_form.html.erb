@@ -30,7 +30,7 @@
     <%= f.text_field :contact_id %>
   </div>
   <div class="field">
-    <%= f.submit "Create Address", class: "button" %>
-    <%= link_to 'Back', contacts_path, class: "button-back" %>
+    <%= f.submit t('buttons.create'), class: "button" %>
+    <%= link_to t('buttons.back'), addresses_path, class: "button-back" %>
   </div>
 <% end %>
