@@ -1,3 +1,5 @@
+<div class="basic-grey">
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= "#{t('messages.listing')} #{@kinds.model_name.human(count: @kinds.count)}" %></h1> 
@@ -12,7 +14,7 @@
 
   <tbody>
     <% @kinds.each do |kind| %>
-      <tr>
+      <tr style="background: <%= cycle('#e0e0eb', '#b3b3cc')%>">
         <td><%= kind.description %></td>
         <td><%= link_to t('buttons.show'), kind %></td>
         <td><%= link_to t('buttons.edit'), edit_kind_path(kind) %></td>
@@ -25,3 +27,5 @@
 <br>
 
 <%= link_to t('buttons.new'), new_kind_path %>
+
+</div>

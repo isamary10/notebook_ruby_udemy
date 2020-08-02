@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index # nome do arquivo
-    @contacts = Contact.all
+    @contacts = Contact.order(:name).page(params[:page]).per(15)
   #  @meu_nome = "Isa Mary"
   end
 
