@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.3.0"
 
 gem 'bundler', '>= 1.8.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,8 +24,6 @@ gem 'lerolero_generator'
 gem 'rails-i18n', '~> 4.0' # For 4.0.x
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -58,6 +56,9 @@ group :development, :test do
   gem 'byebug'
   #Rails >= 3 pry initializer
   gem 'pry-rails'
+
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.3.11'
 end
 
 
@@ -69,3 +70,10 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # Heroku dependency
+  gem 'gp'
+
+  # Heroku dependency
+  gem 'rails_12factor', group: :production
+end
