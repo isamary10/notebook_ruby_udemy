@@ -2,6 +2,7 @@
   messages:
     confirm: Tem certeza?
     listing: Listando
-    destroy: Excluido com sucesso!
-    update: Atualizado com sucesso!
-    create: Criado com sucesso!
+    destroy: Item excluido com sucesso!
+    update: Item atualizado com sucesso!
+    create: Item criado com sucesso!
+    errors: Erros ocorreram...

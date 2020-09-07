@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_options_for_select, only: [:new, :edit, :update, :create]
+  http_basic_authenticate_with name: "isa", password: "123", only: :destroy
 
   # GET /contacts
   # GET /contacts.json
@@ -17,12 +19,11 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     @contact.build_address
-    options_for_select
+    set_options_for_select
   end
 
   # GET /contacts/1/edit
   def edit
-    options_for_select
   end
 
   # POST /contacts
@@ -32,7 +33,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: t('messages.create') }
+        format.html { redirect_to contacts_path, notice: I18n.t('messages.create') }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -46,7 +47,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: t('messages.update') }
+        format.html { redirect_to contacts_path, notice: I18n.t('messages.update') }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }
@@ -60,14 +61,14 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: t('messages.destroy') }
+      format.html { redirect_to contacts_path, notice: I18n.t('messages.destroy') }
       format.json { head :no_content }
     end
   end
 
   private
 
-    def options_for_select
+    def set_options_for_select
       @kind_options_for_select = Kind.all
     end
     # Use callbacks to share common setup or constraints between actions.

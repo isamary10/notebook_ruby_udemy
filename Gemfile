@@ -1,8 +1,19 @@
 source 'https://rubygems.org'
 
 
+gem 'bundler', '>= 1.8.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-leaflet'
+end
+
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+# i18n for kaminari
+gem 'kaminari-i18n'
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
 gem 'kaminari'
 # Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms

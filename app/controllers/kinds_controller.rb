@@ -9,7 +9,8 @@ class KindsController < ApplicationController
   end
 
   # GET /kinds/1
-  # GET /kinds/1.json
+  # GET /kinds/1.json<%= link_to t('buttons.home'), new_kind_path, class: "btn btn-primary" %>
+
   def show
   end
 
@@ -29,7 +30,7 @@ class KindsController < ApplicationController
 
     respond_to do |format|
       if @kind.save
-        format.html { redirect_to @kind, notice: t('messages.create') }
+        format.html { redirect_to kinds_path, notice: I18n.t('messages.create') }
         format.json { render :show, status: :created, location: @kind }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class KindsController < ApplicationController
   def update
     respond_to do |format|
       if @kind.update(kind_params)
-        format.html { redirect_to @kind, notice: t('messages.update') }
+        format.html { redirect_to kinds_path, notice: I18n.t('messages.update') }
         format.json { render :show, status: :ok, location: @kind }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class KindsController < ApplicationController
   def destroy
     @kind.destroy
     respond_to do |format|
-      format.html { redirect_to kinds_url, notice: t('messages.destroy') }
+      format.html { redirect_to kinds_path, notice: I18n.t('messages.destroy') }
       format.json { head :no_content }
     end
   end

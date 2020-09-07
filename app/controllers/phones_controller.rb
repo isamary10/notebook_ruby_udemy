@@ -4,6 +4,11 @@ class PhonesController < ApplicationController
   # GET /phones
   # GET /phones.json
   def index
+
+    respond_to do |format|
+      format.html { @phones = Phone.all }
+      format.js {  }
+    end
     @phones = Phone.order(:phone).page(params[:page]).per(15)
   end
 
